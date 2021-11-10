@@ -1,23 +1,22 @@
-import React from 'react';
-import {
-  View,
-  Text,
-  Image,
-  StyleSheet,
-  TouchableOpacity,
-} from 'react-native';
+import React, {useContext} from 'react';
+import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
 import {Track} from '../data/trackList';
 import {colors} from '../style/colors';
+import {AudioPlayerContext} from '../contexts/AudioPlayerContext';
 
 interface Props {
   track: Track;
-  handleSelectTrack: (track: Track) => void;
   showBorder: boolean;
 }
-export const TrackRow = ({track, showBorder, handleSelectTrack}: Props) => {
+export const TrackRow = ({track, showBorder}: Props) => {
   const {title, artist, artwork} = track;
+
+  const {selectTrack} = useContext(AudioPlayerContext);
+
   return (
-    <TouchableOpacity onPress={() => handleSelectTrack(track)} style={[styles.row, showBorder && styles.border]}>
+    <TouchableOpacity
+      onPress={() => selectTrack(track)}
+      style={[styles.row, showBorder && styles.border]}>
       <Image style={styles.albumImage} source={{uri: artwork}} />
       <View>
         <Text style={styles.title}>{title}</Text>

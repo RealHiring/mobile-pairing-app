@@ -6,3 +6,7 @@
 4. Install dependencies: `npm install`, then run `pod install` from `/ios` folder
 5. To build the app and start the metro server run the `npm start` command from root project directory. You can then choose a device to run on.
 6. To run directly on the iOS simulator, run `npm run ios`. To run on the Android simulator the simulator must first be open, then run `npm run android`.
+
+When the app is running correctly, you should see something like this:
+
+![](./RealTrackPlayer.png)

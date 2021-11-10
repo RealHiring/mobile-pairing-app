@@ -1,5 +1,12 @@
 import React, {useContext} from 'react';
-import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {
+  Image,
+  Platform,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 // @ts-ignore
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {colors} from '../style/colors';
@@ -45,6 +52,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.darkNavy,
     justifyContent: 'space-between',
     alignItems: 'center',
+    marginBottom: Platform.OS === 'android' ? 20 : 0,
   },
   albumInfo: {
     flexDirection: 'row',
